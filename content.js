@@ -3,6 +3,11 @@ const realMain = () => {
     .filter(el => el.id && el.id.startsWith("issue_"));
   for (let i = 0; i < issueDivs.length; i++) {
     const el = issueDivs[i];
+    const a = el.getElementsByTagName("a")[0];
+    el.style.cursor = "pointer";
+    el.onclick = () => {
+      document.location = a.href;
+    };
     const text = el.innerText;
     if (text.includes("Loading…")) {
       setTimeout(realMain, 1000);
