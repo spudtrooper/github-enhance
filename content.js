@@ -27,6 +27,10 @@ const modifyEl = (meEmail, el) => {
 const realMain = () => {
   const issueDivs = Array.from(document.getElementsByTagName("div"))
     .filter(el => el.id && el.id.startsWith("issue_"));
+  if (!issueDivs || !issueDivs.length) {
+    setTimeout(realMain, 300);
+    return;
+  }
   for (let i = 0; i < issueDivs.length; i++) {
     const el = issueDivs[i];
     const text = el.innerText;
